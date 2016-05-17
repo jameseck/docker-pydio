@@ -1,0 +1,4 @@
+#/bin/sh
+
+sed -i -e "s/^upload_max_filesize.*/upload_max_filesize=${MAX_UPLOAD}/g" /etc/php.ini
+sed -i -e "s/^post_max_size.*/post_max_size=${MAX_UPLOAD}/g" /etc/php.ini
