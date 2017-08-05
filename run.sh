@@ -3,7 +3,6 @@
 source /opt/rh/rh-php56/enable
 source /opt/rh/httpd24/enable
 
-sed -i -e "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 sed -i -e "s/^upload_max_filesize.*/upload_max_filesize=${MAX_UPLOAD}/g" /etc/opt/rh/rh-php56/php.ini
 sed -i -e "s/^post_max_size.*/post_max_size=${MAX_UPLOAD}/g" /etc/opt/rh/rh-php56/php.ini
 
