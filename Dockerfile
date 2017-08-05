@@ -1,9 +1,9 @@
-FROM jameseckersall/docker-centos-base
+FROM centos:latest
 
 MAINTAINER James Eckersall <james.eckersall@gmail.com>
 
 RUN \
-  yum install -y centos-release-scl centos-release-scl-rh && \
+  yum install -y epel-release centos-release-scl centos-release-scl-rh && \
   rpm -Uvh https://www.softwarecollections.org/en/scls/remi/php56more/epel-7-x86_64/download/remi-php56more-epel-7-x86_64.noarch.rpm && \
   rpm -ivh https://download.pydio.com/pub/linux/centos/7/pydio-release-1-1.el7.centos.noarch.rpm && \
   yum -y install httpd && \
@@ -15,9 +15,10 @@ RUN \
   mv /tmp/plupload-2.1.8/js /usr/share/pydio/plugins/uploader.plupload/plupload && \
   rm -rf /tmp/plupload-2.1.8 /tmp/plupload.zip
 
-COPY supervisord.d/ /etc/supervisord.d/
-COPY hooks/ /hooks/
+COPY run.sh /
+RUN chmod 0755 /run.sh
 
 ENV MAX_UPLOAD 1024M
 
-EXPOSE 80
+EXPOSE 8080
+ENTRYPOINT '/run.sh'
