@@ -14,10 +14,12 @@ RUN \
   unzip /tmp/plupload.zip -d /tmp/ && \
   mv /tmp/plupload-2.1.8/js /usr/share/pydio/plugins/uploader.plupload/plupload && \
   rm -rf /tmp/plupload-2.1.8 /tmp/plupload.zip && \
+  sed -i -e 's/^RewriteBase.*$/RewriteBase \//g' /usr/share/pydio/.htaccess && \
   sed -i -e 's/Listen 80/Listen 8080/g' /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf
 
 COPY run.sh /
 RUN chmod 0755 /run.sh
+COPY pydio.conf /opt/rh/httpd24/root/etc/httpd/conf.d/pydio.conf
 
 ENV MAX_UPLOAD 1024M
 
