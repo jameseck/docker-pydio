@@ -1,0 +1,10 @@
+package: {}
+process:
+  httpd:
+    running: true
+command:
+  curl localhost:8080 -H Accept:\ text/html:
+    exit-status: 0
+    stdout:
+    - "/<title>Pydio<\\/title>/"
+    timeout: 10000 # in milliseconds
