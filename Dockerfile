@@ -3,9 +3,9 @@ FROM centos:latest
 MAINTAINER James Eckersall <james.eckersall@gmail.com>
 
 RUN \
-  yum install -y epel-release centos-release-scl centos-release-scl-rh && \
-  rpm -Uvh https://www.softwarecollections.org/en/scls/remi/php56more/epel-7-x86_64/download/remi-php56more-epel-7-x86_64.noarch.rpm && \
+  yum install -y epel-release scl-utils centos-release-scl centos-release-scl-rh && \
   rpm -ivh https://download.pydio.com/pub/linux/centos/7/pydio-release-1-1.el7.centos.noarch.rpm && \
+  rpm -Uvh https://www.softwarecollections.org/en/scls/remi/php56more/epel-7-x86_64/download/remi-php56more-epel-7-x86_64.noarch.rpm && \
   yum -y install httpd && \
   yum -y install pydio-all
 
@@ -20,6 +20,7 @@ RUN \
 COPY run.sh /
 RUN chmod 0755 /run.sh
 COPY pydio.conf /opt/rh/httpd24/root/etc/httpd/conf.d/pydio.conf
+RUN chmod 0775 -R /opt/rh/httpd24/root/etc/httpd/conf.d
 
 ENV MAX_UPLOAD 1024M
 
