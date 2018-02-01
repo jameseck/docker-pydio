@@ -20,8 +20,8 @@ RUN \
 COPY run.sh /
 RUN chmod 0755 /run.sh
 COPY pydio.conf /opt/rh/httpd24/root/etc/httpd/conf.d/pydio.conf
-RUN chown -R apache:root /opt/rh/httpd24/root /usr/share/pydio /var/cache/pydio /var/lib/pydio /var/opt/rh/rh-php56/lib
-RUN chmod 0775 -R /var/log /etc/opt/rh/rh-php56 /opt/rh/httpd24/root/etc/httpd /opt/rh/httpd24/root/var/run/httpd /opt/rh/httpd24/root/etc/httpd/logs /var/cache/pydio /var/lib/pydio /var/opt/rh/rh-php56/lib/php/session
+#RUN chown -R apache:root /opt/rh/httpd24/root /usr/share/pydio /var/cache/pydio /var/lib/pydio /var/opt/rh/rh-php56/lib
+#RUN chmod 0775 -R /var/log /etc/opt/rh/rh-php56 /opt/rh/httpd24/root/etc/httpd /opt/rh/httpd24/root/var/run/httpd /opt/rh/httpd24/root/etc/httpd/logs /var/cache/pydio /var/lib/pydio /var/opt/rh/rh-php56/lib/php/session
 
 ENV MAX_UPLOAD 2048M
 
