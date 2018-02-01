@@ -42,7 +42,7 @@ post-push:
 tests: docker-build .tests
 
 .tests:
-	dgoss run -u 100000:0 -p 8080:8080 $(IMAGE):$(VERSION)
+	dgoss run -p 8080:8080 $(IMAGE):$(VERSION)
 
 docker-build: .release
 	docker build -t $(IMAGE):$(VERSION) .
