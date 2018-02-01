@@ -20,7 +20,7 @@ RUN \
 COPY run.sh /
 RUN chmod 0755 /run.sh
 COPY pydio.conf /opt/rh/httpd24/root/etc/httpd/conf.d/pydio.conf
-RUN chmod 0775 -R /opt/rh/httpd24/root/etc/httpd/conf.d /opt/rh/httpd24/root/var/run/httpd /opt/rh/httpd24/root/etc/httpd/logs
+RUN chmod 0775 -R /etc/opt/rh/rh-php56 /opt/rh/httpd24/root/etc/httpd/conf.d /opt/rh/httpd24/root/var/run/httpd /opt/rh/httpd24/root/etc/httpd/logs
 
 ENV MAX_UPLOAD 2048M
 
