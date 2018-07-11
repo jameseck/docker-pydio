@@ -4,7 +4,7 @@ MAINTAINER James Eckersall <james.eckersall@gmail.com>
 
 RUN \
   yum install -y epel-release scl-utils centos-release-scl centos-release-scl-rh && \
-  rpm -ivh https://download.pydio.com/pub/linux/centos/7/pydio-release-1-1.el7.centos.noarch.rpm && \
+  rpm -ivh https://download.pydio.com/pub/linux/centos/7/pydio-release-1-1.el7.noarch.rpm && \
   rpm -Uvh https://www.softwarecollections.org/en/scls/remi/php56more/epel-7-x86_64/download/remi-php56more-epel-7-x86_64.noarch.rpm && \
   yum -y install httpd && \
   yum -y install pydio-all
